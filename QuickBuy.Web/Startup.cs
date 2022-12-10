@@ -10,12 +10,14 @@ namespace QuickBuy.Web
 {
     public class Startup
     {
+        // Um arquivo de json que terá as configurações do nosso sistema.
+        // Essa atribuição será feita no método construtor.
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
+        }        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -29,6 +31,8 @@ namespace QuickBuy.Web
             });
         }
 
+        // Configurar o pipeline do ASP .NET Core
+        // Como ele trata cada requisição.
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -63,7 +67,19 @@ namespace QuickBuy.Web
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    /**
+                     * É possível usar o processo do Angular em separado com o do
+                     * ASP .NET Core.
+                     * Comentar a linha abaixo spa.Use...
+                     * Quando colocar a aplicação do .net pra rodar, ele vai rodar ela e a do
+                     * Angular.
+                     * dar um ng serve.
+                     * Ao invés de usar o CliServer, usar:
+                     * spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
+                     */
+                    // spa.UseAngularCliServer(npmScript: "start");
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
+
                 }
             });
         }
