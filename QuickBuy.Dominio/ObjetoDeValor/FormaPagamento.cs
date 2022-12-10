@@ -21,12 +21,12 @@ namespace QuickBuy.Dominio.ObjetoDeValor
             get { return Id == (int)TipoFormaDePagamentoEnum.CartaoDeCredito; }
         }
 
-        public bool EhCartao
+        public bool EhDeposito
         {
             get { return Id == (int)TipoFormaDePagamentoEnum.Deposito; }
         }
 
-        public bool EhCartao
+        public bool EhNaoDefinido
         {
             get { return Id == (int)TipoFormaDePagamentoEnum.NaoDefinido; }
         }
