@@ -29,6 +29,7 @@ namespace QuickBuy.Repositorio.Contexto
             modelBuilder.ApplyConfiguration(new ItemPedidoConfiguration());
             modelBuilder.ApplyConfiguration(new FormaPagamentoConfiguration());
 
+            // Popular a forma de pagamento.
             modelBuilder.Entity<FormaPagamento>().HasData(new FormaPagamento()
             {
                 Id = 1,
