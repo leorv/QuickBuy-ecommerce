@@ -10,6 +10,10 @@ namespace QuickBuy.Dominio.Entidades
         public int ProdutoId { get; set; }
         public int Quantidade { get; set; }
 
+        // Relações
+        public virtual Pedido Pedido { get; set; }
+        public int PedidoId { get; set; }
+
         public override void Validate()
         {
             if (ProdutoId == 0) AdicionarMensagemValidacao("Não foi identificado a referência do produto.");

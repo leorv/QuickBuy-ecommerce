@@ -14,8 +14,10 @@ namespace QuickBuy.Dominio.Entidades
 
         /// <summary>
         /// Um usuário pode ter nenhum ou mais pedidos.
+        /// É virtual para o EF Core alimentar em tempo de
+        /// execução para os pedidos que estiverem na base.
         /// </summary>
-        public ICollection<Pedido> Pedidos { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
 
         public override void Validate()
         {
