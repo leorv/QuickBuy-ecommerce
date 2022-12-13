@@ -19,6 +19,7 @@ namespace QuickBuy.Repositorio.Repositorios
         public void Adicionar(T entity)
         {
             QuickBuyContexto.Set<T>().Add(entity);
+            QuickBuyContexto.SaveChanges();
         }
 
         public void Atualizar(T entity)
