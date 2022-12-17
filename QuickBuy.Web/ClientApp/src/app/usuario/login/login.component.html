@@ -8,7 +8,26 @@
       name="email"
       placeholder="informe o e-mail"
       class="form-control mb-2"
+      [(ngModel)]="usuario.email"
+      #email="ngModel"
+      required
+      email
+      [ngClass]="{
+        'is-invalid': email.invalid && (email.dirty || email.touched),
+        'is-valid': email.valid && (email.dirty || email.touched)
+    }"
     />
+    <div
+      class="invalid-feedback mb-3"
+      *ngIf="email.invalid && (email.dirty || email.touched)"
+    >
+      <div *ngIf="email.errors.required">
+        O e-mail deve ser informado.
+      </div>
+      <div *ngIf="email.errors.email" >
+        Deve ser informado um e-mail válido.
+      </div>
+    </div>
     <label for="inputSenha" class="sr-only">Senha</label>
     <input
       type="senha"
@@ -16,7 +35,25 @@
       name="senha"
       placeholder="informe a senha"
       class="form-control mb-2"
+      [(ngModel)]="usuario.senha"
+      #senha="ngModel"
+      required
+      [ngClass]="{
+        'is-invalid': senha.invalid && (senha.dirty || senha.touched),
+        'is-valid': senha.valid && (senha.dirty || senha.touched)
+    }"
     />
-    <button class="btn btn-primary btn-block" type="submit" >Entrar</button>
+    <div
+      class="invalid-feedback mb-3"
+      *ngIf="senha.invalid && (senha.dirty || senha.touched)"
+    >
+      <div *ngIf="senha.errors.required">
+        A senha deve ser informada.
+      </div>
+    </div>
+    <button class="btn btn-primary btn-block" type="submit" (click)="entrar()">
+      Entrar
+    </button>
+    <img src="assets/quick-buy-logo.jfif" />
   </form>
 </div>

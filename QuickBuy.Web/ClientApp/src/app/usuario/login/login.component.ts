@@ -1,3 +1,4 @@
+import { Usuario } from './../../models/Usuario';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+    public usuario: Usuario = new Usuario(); //{id: 0, nome: '', email: '', senha: '', sobrenome: ''};
+    
+
     constructor() { }
 
     ngOnInit() {
     }
+
+    entrar() {
+        alert('Entrar no sistema.');
+    }
+
 
 }
