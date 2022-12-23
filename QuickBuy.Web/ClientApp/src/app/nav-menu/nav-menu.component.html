@@ -37,8 +37,19 @@
               >Produto</a
             >
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            *ngIf="!usuarioLogado()"
+          >
             <a class="nav-link text-dark" [routerLink]="['/entrar']">Entrar</a>
+          </li>
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            *ngIf="usuarioLogado()"
+          >
+            <a class="clicavel nav-link text-dark" (click)="sair()" >Sair</a>
           </li>
         </ul>
       </div>
