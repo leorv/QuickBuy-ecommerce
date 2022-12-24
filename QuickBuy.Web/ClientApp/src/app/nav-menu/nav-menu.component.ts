@@ -29,7 +29,7 @@ export class NavMenuComponent {
     }
 
     sair(){
-        sessionStorage.setItem("usuario-autenticado", "");
+        this.usuarioService.usuario = null;
         this.router.navigate(['/']);
     }
 }

@@ -57,6 +57,10 @@
       Entrar
     </button>
 
+    <div>
+        Novo por aqui? <a [routerLink]="['/novo-usuario']">Cadastre-se</a>
+    </div>
+
     <div class="alert alert-danger mt-3" *ngIf="mensagem" >
         {{ mensagem }}
     </div>
