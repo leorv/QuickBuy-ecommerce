@@ -1,3 +1,4 @@
+import { UsuarioService } from './../servicos/usuario/usuario.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
@@ -10,7 +11,8 @@ export class NavMenuComponent {
     isExpanded = false;
 
     constructor(
-        private router: Router
+        private router: Router,
+        private usuarioService: UsuarioService
     ) {
     }
 
@@ -23,7 +25,7 @@ export class NavMenuComponent {
     }
 
     public usuarioLogado(): boolean {
-        return sessionStorage.getItem("usuario-autenticado") == "1";
+        return this.usuarioService.usuario_autenticado();
     }
 
     sair(){

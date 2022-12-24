@@ -51,9 +51,16 @@
         A senha deve ser informada.
       </div>
     </div>
-    <button class="btn btn-primary btn-block" type="submit" (click)="entrar()">
+    
+    <button class="btn btn-primary btn-block" type="submit" (click)="entrar()" [disabled]="ativarSpinner">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativarSpinner" ></span>
       Entrar
     </button>
+
+    <div class="alert alert-danger mt-3" *ngIf="mensagem" >
+        {{ mensagem }}
+    </div>
+
     <img src="assets/quick-buy-logo.jfif" />
   </form>
 </div>
