@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using QuickBuy.Dominio.Contratos;
 using QuickBuy.Dominio.Entidades;
 using System;
@@ -54,25 +55,31 @@ namespace QuickBuy.Web.Controllers
             }
         }
 
-        [HttpPost("EnviarImagem")]
-        public IActionResult EnviarImagem()
+        [HttpPost("EnviarArquivo")]
+        public IActionResult EnviarArquivo()
         {
             try
             {
                 // Tratamento do arquivo de imagem
                 IFormFile formFile = _httpContextAcessor.HttpContext.Request.Form.Files["arquivoEnviado"];
-                string nomeDoArquivo = GerarNovoNomeParaArquivo(formFile);
+                string novoNomeArquivo = GerarNovoNomeParaArquivo(formFile);
 
-                string pastaDasImagens = _hostingEnvironment.WebRootPath.Concat("\\imagens-produtos\\").ToString();
-                string caminhoComNome = pastaDasImagens.Concat(nomeDoArquivo).ToString();
+                string pastaDasImagens = $"{_hostingEnvironment.WebRootPath}\\imagens-produtos\\";
+                string nomeCompleto = $"{pastaDasImagens}{novoNomeArquivo}";
 
                 // Gravando o arquivo no servidor.
-                using (var streamArquivo = new FileStream(caminhoComNome, FileMode.Create))
+                using (var streamArquivo = new FileStream(nomeCompleto, FileMode.Create))
                 {
                     formFile.CopyTo(streamArquivo);
                 }
 
-                return Created("api/produtos/EnviarImagem", nomeDoArquivo);
+                // Gerando json para retorno
+                var json = new
+                {
+                    nome = nomeCompleto
+                };
+
+                return Created("api/produtos/EnviarArquivo", json);
             }
             catch (Exception ex)
             {
@@ -84,10 +91,14 @@ namespace QuickBuy.Web.Controllers
         {
             string nomeDoArquivo = formFile.FileName;
             string extensao = nomeDoArquivo.Split('.').Last();
+
             char[] arrayNomeCompacto = Path.GetFileNameWithoutExtension(nomeDoArquivo).Take(10).ToArray();
             string novoNomeDoArquivo = new string(arrayNomeCompacto).Replace(" ", "-");
-            novoNomeDoArquivo += $"{DateTime.Now}.{extensao}";
+            novoNomeDoArquivo = $"{novoNomeDoArquivo}{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}{DateTime.Now.Second}.{extensao}";
+
             return novoNomeDoArquivo;
         }
+
+
     }
 }

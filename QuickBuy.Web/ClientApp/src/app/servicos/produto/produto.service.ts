@@ -45,10 +45,10 @@ export class ProdutoService {
         return this.http.post<Produto>(`${this._baseUrl}api/produtos/deletar`, JSON.stringify(produto), { headers: this.headers });
     }
 
-    enviarArquivo(arquivoSelecionado: File): Observable<string> {
+    enviarArquivo(arquivoSelecionado: File): Observable<any> {
         const formData: FormData = new FormData();
         formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name);
-        
-        return this.http.post<string>(`${this._baseUrl}api/produtos/EnviarArquivo`, formData);
+
+        return this.http.post<any>(`${this._baseUrl}api/produtos/EnviarArquivo`, formData);
     }
 }

@@ -15,6 +15,8 @@ export class ProdutoComponent implements OnInit {
     arquivoSelecionado: File;
     ativarSpinner: boolean = false;
 
+    stringImagem: any;
+
     constructor(
         private produtoService: ProdutoService
     ) { }
@@ -47,11 +49,14 @@ export class ProdutoComponent implements OnInit {
         this.produtoService.enviarArquivo(this.arquivoSelecionado)
             .subscribe({
                 next: result => {
-                    this.produto.nomeArquivo = result;
-                    console.log(result);
+                    this.produto.nomeArquivo = result.nome;
+                    console.log(this.produto);
                     this.ativarSpinner = false;
+                    this.stringImagem = result;
                 },
                 error: err => {
+                    console.log('Ocorreu um erro ao tentar inserir a imagem.');
+                    
                     console.error(err);
                     this.ativarSpinner = false;
                 }
