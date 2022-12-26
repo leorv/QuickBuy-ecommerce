@@ -48,11 +48,21 @@
               role="button"
               aria-haspopup="true"
               aria-expanded="false"
-              id="dropdown-menu"
+              id="linkMenu"
               data-toggle="dropdown"
-            > {{ usuario.nome }} </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdown-menu" >
-              <li class="dropdown-item" role="menu" (click)="sair()">Sair</li>
+            >
+              {{ usuario.nome }}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="linkMenu">
+              <li
+                class="dropdown-item"
+                [routerLink]="['/sair']"
+                routerLinkActive="router-link-active"
+                role="menu"
+                (click)="sair()"
+              >
+                Sair
+              </li>
             </ul>
           </li>
 

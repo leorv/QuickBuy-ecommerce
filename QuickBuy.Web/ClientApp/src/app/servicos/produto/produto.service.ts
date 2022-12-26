@@ -48,6 +48,7 @@ export class ProdutoService {
     enviarArquivo(arquivoSelecionado: File): Observable<string> {
         const formData: FormData = new FormData();
         formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name);
+        
         return this.http.post<string>(`${this._baseUrl}api/produtos/EnviarArquivo`, formData);
     }
 }
