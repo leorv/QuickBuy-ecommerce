@@ -118,6 +118,9 @@
     <div class="alert alert-danger mt-3" *ngIf="mensagem" >
         {{ mensagem }}
     </div>
+    <div class="alert alert-success mt-3" *ngIf="usuarioCadastrado" >
+        Usuário cadastrado com sucesso. <a [routerLink]="['/entrar']">Clique aqui para logar.</a>
+    </div>
 
     <img src="assets/quick-buy-logo.jfif" />
   </form>

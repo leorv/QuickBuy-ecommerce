@@ -40,13 +40,29 @@
           >
             <a class="nav-link text-dark" [routerLink]="['/entrar']">Entrar</a>
           </li>
-          <li
+
+          <!-- DropDown - Usuário logado -->
+          <li class="nav-item dropdown" *ngIf="usuarioLogado()">
+            <a
+              class="nav-link clicavel text-dark dropdown-toggle"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              id="dropdown-menu"
+              data-toggle="dropdown"
+            > {{ usuario.nome }} </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown-menu" >
+              <li class="dropdown-item" role="menu" (click)="sair()">Sair</li>
+            </ul>
+          </li>
+
+          <!-- <li
             class="nav-item"
             [routerLinkActive]="['link-active']"
             *ngIf="usuarioLogado()"
           >
             <a class="clicavel nav-link text-dark" (click)="sair()">Sair</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>

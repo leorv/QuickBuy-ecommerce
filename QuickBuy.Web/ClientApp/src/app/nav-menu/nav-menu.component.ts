@@ -1,3 +1,4 @@
+import { Usuario } from './../models/Usuario';
 import { UsuarioService } from './../servicos/usuario/usuario.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
@@ -9,6 +10,10 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
     isExpanded = false;
+
+    get usuario(): Usuario {
+        return this.usuarioService.usuario;
+    }
 
     constructor(
         private router: Router,
@@ -30,6 +35,7 @@ export class NavMenuComponent {
 
     sair(){
         this.usuarioService.usuario = null;
+        this.usuarioService.limpar_sessao();
         this.router.navigate(['/']);
     }
 }

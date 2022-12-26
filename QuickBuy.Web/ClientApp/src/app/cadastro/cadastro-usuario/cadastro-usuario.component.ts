@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./cadastro-usuario.component.css']
 })
 export class CadastroUsuarioComponent implements OnInit {
-
     usuario: Usuario;
+    mensagem: string = null;
+    ativarSpinner: boolean = false;
+    usuarioCadastrado: boolean = false;
 
     constructor(
         private usuarioService: UsuarioService
@@ -20,13 +22,17 @@ export class CadastroUsuarioComponent implements OnInit {
     }
 
     cadastrar() {
+        this.ativarSpinner = true;
         this.usuarioService.cadastrarUsuario(this.usuario)
             .subscribe({
                 next: usuario => {
-                    
+                    this.mensagem = null;
+                    this.usuarioCadastrado = true;
+                    this.ativarSpinner = false;
                 },
                 error: err => {
-
+                    this.ativarSpinner = false;
+                    this.mensagem = 'Ocorreu um erro ao tentarmos cadastrar o usuário.';
                 }
             })
     }
