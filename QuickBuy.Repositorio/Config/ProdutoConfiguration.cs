@@ -25,7 +25,12 @@ namespace QuickBuy.Repositorio.Config
 
             // ===== Preco =====
             builder.Property(p => p.Preco)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnType("DECIMAL(19,4)");
+
+            // ===== Nome do Arquivo de Imagem =====
+            builder.Property(p => p.NomeArquivo)
+                .HasMaxLength(35);
 
         }
     }

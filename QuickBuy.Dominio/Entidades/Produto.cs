@@ -10,10 +10,19 @@ namespace QuickBuy.Dominio.Entidades
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public decimal Preco { get; set; }
+        public string NomeArquivo { get; set; }
 
         public override void Validate()
         {
-            if (Nome.Length == 0) AdicionarMensagemValidacao("Produto não possui nome.");
+            try
+            {
+                if (Nome.Length == 0) AdicionarMensagemValidacao("Produto não possui nome.");
+                if (Preco <= 0) AdicionarMensagemValidacao("Informar um preço válido.");
+            }
+            catch (NullReferenceException) {
+                AdicionarMensagemValidacao("Produto não possui nome.");
+            }
+
         }
     }
 }
