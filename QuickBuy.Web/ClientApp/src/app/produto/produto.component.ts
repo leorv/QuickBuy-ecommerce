@@ -33,10 +33,11 @@ export class ProdutoComponent implements OnInit {
         this.produtoService.cadastrar(this.produto)
             .subscribe({
                 next: produto => {
-
+                    this.produto = produto;
                 },
                 error: err => {
                     console.error(err);
+                    this.mensagem = `Erro ao cadastrar: ${err.error}`;
                 }
             });
     }
@@ -60,6 +61,7 @@ export class ProdutoComponent implements OnInit {
                     
                     console.error(err);
                     this.ativarSpinner = false;
+                    this.mensagem = err.error;
                 }
             });
     }
