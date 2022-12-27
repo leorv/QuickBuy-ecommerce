@@ -34,7 +34,7 @@ export class ProdutoService {
         //     descricao: produto.descricao,
         //     preco: produto.preco
         // }
-        return this.http.post<Produto>(`${this._baseUrl}api/produtos/cadastrar`, JSON.stringify(produto), { headers: this.headers });
+        return this.http.post<Produto>(`${this._baseUrl}api/produtos`, JSON.stringify(produto), { headers: this.headers });
     }
 
     salvar(produto: Produto): Observable<Produto> {

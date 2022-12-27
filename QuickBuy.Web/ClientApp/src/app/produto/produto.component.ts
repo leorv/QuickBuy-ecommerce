@@ -14,6 +14,7 @@ export class ProdutoComponent implements OnInit {
     produto: Produto = new Produto();
     arquivoSelecionado: File;
     ativarSpinner: boolean = false;
+    mensagem: string = null;
 
     stringImagem: any;
 
