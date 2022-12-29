@@ -27,8 +27,7 @@ export class ProdutoService {
         return this.http.get<Produto>(`${this._baseUrl}api/produtos/${id}`);
     }
 
-    cadastrar(produto: Produto): Observable<Produto> {
-        
+    cadastrar(produto: Produto): Observable<Produto> { 
         // var body = {
         //     nome: produto.nome,
         //     descricao: produto.descricao,
@@ -41,8 +40,8 @@ export class ProdutoService {
         return this.http.post<Produto>(`${this._baseUrl}api/produtos/salvar`, JSON.stringify(produto), { headers: this.headers });
     }
 
-    deletar(produto: Produto) {
-        return this.http.post<Produto>(`${this._baseUrl}api/produtos/deletar`, JSON.stringify(produto), { headers: this.headers });
+    deletar(produto: Produto): Observable<Produto[]> {
+        return this.http.post<Produto[]>(`${this._baseUrl}api/produtos/deletar`, JSON.stringify(produto), { headers: this.headers });
     }
 
     enviarArquivo(arquivoSelecionado: File): Observable<any> {

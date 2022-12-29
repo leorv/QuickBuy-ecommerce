@@ -81,7 +81,7 @@ namespace QuickBuy.Web.Controllers
                 // Gerando json para retorno
                 var json = new
                 {
-                    nome = nomeCompleto
+                    nome = novoNomeArquivo
                 };
 
                 return Created("api/produtos/EnviarArquivo", json);
@@ -102,6 +102,21 @@ namespace QuickBuy.Web.Controllers
             novoNomeDoArquivo = $"{novoNomeDoArquivo}{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}{DateTime.Now.Second}.{extensao}";
 
             return novoNomeDoArquivo;
+        }
+
+        [HttpPost("Deletar")]
+        public IActionResult Deletar([FromBody] Produto produto)
+        {
+            try
+            {
+                // Não é o cenário ideal.
+                _produtoRepositorio.Remover(produto);
+                return Ok(_produtoRepositorio.ObterTodos());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 

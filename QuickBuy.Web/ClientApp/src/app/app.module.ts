@@ -31,7 +31,8 @@ import { PesquisaProdutoComponent } from './produto/pesquisa-produto/pesquisa-pr
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'produto', component: ProdutoComponent , canActivate: [RotasGuard] },
             { path: 'entrar', component: LoginComponent },
-            { path: 'novo-usuario', component: CadastroUsuarioComponent }
+            { path: 'novo-usuario', component: CadastroUsuarioComponent },
+            { path: 'pesquisar-produtos', component: PesquisaProdutoComponent}
         ])
     ],
     providers: [],

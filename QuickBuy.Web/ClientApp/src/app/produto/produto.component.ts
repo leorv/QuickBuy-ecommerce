@@ -1,6 +1,7 @@
 import { Produto } from './../models/Produto';
 import { ProdutoService } from './../servicos/produto/produto.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-produto',
@@ -19,7 +20,8 @@ export class ProdutoComponent implements OnInit {
     stringImagem: any;
 
     constructor(
-        private produtoService: ProdutoService
+        private produtoService: ProdutoService,
+        private router: Router
     ) { }
 
     ngOnInit() {
@@ -34,6 +36,7 @@ export class ProdutoComponent implements OnInit {
             .subscribe({
                 next: produto => {
                     this.produto = produto;
+                    this.router.navigate(['/pesquisar-produtos']);
                 },
                 error: err => {
                     console.error(err);

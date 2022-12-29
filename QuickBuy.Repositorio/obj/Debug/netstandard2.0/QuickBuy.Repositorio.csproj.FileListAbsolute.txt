@@ -9,4 +9,4 @@ C:\Users\leona\source\repos\QuickBuy\QuickBuy.Repositorio\obj\Debug\netstandard2
 C:\Users\leona\source\repos\QuickBuy\QuickBuy.Repositorio\bin\Debug\netstandard2.0\QuickBuy.Dominio.dll
 C:\Users\leona\source\repos\QuickBuy\QuickBuy.Repositorio\bin\Debug\netstandard2.0\QuickBuy.Dominio.pdb
 C:\Users\leona\source\repos\QuickBuy\QuickBuy.Repositorio\obj\Debug\netstandard2.0\QuickBuy.Repositorio.csproj.CopyComplete
-C:\Users\leona\source\repos\QuickBuy\QuickBuy.Repositorio\obj\Debug\netstandard2.0\QuickBuy.Repositorio.csprojAssemblyReference.cache
+C:\Users\leona\source\repos\QuickBuy\QuickBuy.Repositorio\obj\Debug\netstandard2.0\QuickBuy.Repositorio.csproj.AssemblyReference.cache
