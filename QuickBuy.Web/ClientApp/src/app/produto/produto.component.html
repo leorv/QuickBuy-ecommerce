@@ -87,7 +87,7 @@
 </div>
 
 <button
-  class="btn btn-primary btn-block col-md-2 mb-2"
+  class="btn btn-primary mb-2"
   type="submit"
   (click)="cadastrar()"
   [disabled]="ativarSpinner"
@@ -98,8 +98,10 @@
     aria-hidden="true"
     *ngIf="ativarSpinner"
   ></span>
-  Cadastrar
+  Enviar
 </button>
+
+<button class="btn btn-secondary mb-2" [routerLink]="['/pesquisar-produtos']">Cancelar</button>
 
 <div class="alert alert-danger col-md-4" *ngIf="mensagem" >
     {{ mensagem }}

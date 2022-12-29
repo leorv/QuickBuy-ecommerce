@@ -6,12 +6,13 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'app-produto',
     templateUrl: './produto.component.html',
-    styleUrls: ['./produto.component.css']
+    styleUrls: ['./produto.component.css'],
+    preserveWhitespaces: true
 })
 export class ProdutoComponent implements OnInit {
 
-    public nome: string;
-    public liberadoParaVenda: boolean;
+    nome: string;
+    liberadoParaVenda: boolean;
     produto: Produto = new Produto();
     arquivoSelecionado: File;
     ativarSpinner: boolean = false;
@@ -25,6 +26,12 @@ export class ProdutoComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        var produtoSessao = sessionStorage.getItem('produtoSessao');
+        if (produtoSessao) {
+            this.produto = JSON.parse(produtoSessao);
+        } else {
+            this.produto = new Produto();
+        }
     }
 
     public obterNome() {
@@ -61,7 +68,7 @@ export class ProdutoComponent implements OnInit {
                 },
                 error: err => {
                     console.log('Ocorreu um erro ao tentar inserir a imagem.');
-                    
+
                     console.error(err);
                     this.ativarSpinner = false;
                     this.mensagem = err.error;

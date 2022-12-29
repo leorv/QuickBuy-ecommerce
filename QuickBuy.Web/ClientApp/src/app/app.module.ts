@@ -32,7 +32,7 @@ import { PesquisaProdutoComponent } from './produto/pesquisa-produto/pesquisa-pr
             { path: 'produto', component: ProdutoComponent , canActivate: [RotasGuard] },
             { path: 'entrar', component: LoginComponent },
             { path: 'novo-usuario', component: CadastroUsuarioComponent },
-            { path: 'pesquisar-produtos', component: PesquisaProdutoComponent}
+            { path: 'pesquisar-produtos', component: PesquisaProdutoComponent, canActivate: [RotasGuard] }
         ])
     ],
     providers: [],

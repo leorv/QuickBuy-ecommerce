@@ -22,7 +22,7 @@
             <td>{{ produto.descricao }}</td>
             <td>{{ produto.preco }}</td>
             <td> <img src="../../../../../imagens-produtos/{{ produto.nomeArquivo }}" alt=""> </td>
-            <td> <button class="btn btn-secondary btn-sm" >Editar</button> </td>
+            <td> <button class="btn btn-secondary btn-sm" (click)="editarProduto(produto)" >Editar</button> </td>
             <td> <button class="btn btn-danger btn-sm" (click)="deletarProduto(produto)"  >Deletar</button> </td>
         </tr>
     </tbody>
