@@ -35,6 +35,7 @@
   [(ngModel)]="produto.descricao"
   #descricao="ngModel"
   required
+  minlength="8"
   [ngClass]="{
     'is-invalid': descricao.invalid && (descricao.dirty || descricao.touched),
     'is-valid': descricao.valid && (descricao.dirty || descricao.touched)
@@ -46,6 +47,7 @@
   *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)"
 >
   <div *ngIf="descricao.errors.required">A desrição deve ser preenchida.</div>
+  <div *ngIf="descricao.errors.minlength" >A descrição deve ter no mínimo 8 caracteres.</div>
 </div>
 
 <!-- Preço -->

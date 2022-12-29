@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { TruncateModule } from 'ng2-truncate';
 
 import { AppComponent } from './app.component';
 import { RotasGuard } from './autorizacao/rotas.guard';
@@ -12,6 +13,8 @@ import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { CadastroUsuarioComponent } from './cadastro/cadastro-usuario/cadastro-usuario.component';
 import { PesquisaProdutoComponent } from './produto/pesquisa-produto/pesquisa-produto.component';
+import { LojaPesquisaComponent } from './loja/loja-pesquisa/loja-pesquisa.component';
+import { LojaProdutoComponent } from './loja/loja-produto/loja-produto.component';
 
 @NgModule({
     declarations: [
@@ -21,18 +24,22 @@ import { PesquisaProdutoComponent } from './produto/pesquisa-produto/pesquisa-pr
         ProdutoComponent,
         LoginComponent,
         CadastroUsuarioComponent,
-        PesquisaProdutoComponent
+        PesquisaProdutoComponent,
+        LojaPesquisaComponent,
+        LojaProdutoComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
         HttpClientModule,
         FormsModule,
+        TruncateModule,
         RouterModule.forRoot([
             { path: '', component: HomeComponent, pathMatch: 'full' },
-            { path: 'produto', component: ProdutoComponent , canActivate: [RotasGuard] },
+            { path: 'loja-produto', component: LojaProdutoComponent },
             { path: 'entrar', component: LoginComponent },
             { path: 'novo-usuario', component: CadastroUsuarioComponent },
-            { path: 'pesquisar-produtos', component: PesquisaProdutoComponent, canActivate: [RotasGuard] }
+            { path: 'pesquisar-produtos', component: PesquisaProdutoComponent, canActivate: [RotasGuard] },
+            { path: 'produto', component: ProdutoComponent, canActivate: [RotasGuard] }
         ])
     ],
     providers: [],
