@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Produto } from './../../models/Produto';
 import { ProdutoService } from './../../servicos/produto/produto.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,8 @@ export class LojaPesquisaComponent implements OnInit {
     produtos: Produto[] = [];
 
     constructor(
-        private produtoService: ProdutoService
+        private produtoService: ProdutoService,
+        private router: Router
     ) { }
 
     ngOnInit() {
@@ -25,6 +27,11 @@ export class LojaPesquisaComponent implements OnInit {
                 
             }
         })
+    }
+
+    visualizarProduto(produto: Produto) {
+        sessionStorage.setItem('produtoDetalhe', JSON.stringify(produto));
+        this.router.navigate(['/loja-produto']);
     }
 
 }

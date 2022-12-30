@@ -15,6 +15,7 @@ import { CadastroUsuarioComponent } from './cadastro/cadastro-usuario/cadastro-u
 import { PesquisaProdutoComponent } from './produto/pesquisa-produto/pesquisa-produto.component';
 import { LojaPesquisaComponent } from './loja/loja-pesquisa/loja-pesquisa.component';
 import { LojaProdutoComponent } from './loja/loja-produto/loja-produto.component';
+import { LojaEfetivarComponent } from './loja/loja-efetivar/loja-efetivar.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { LojaProdutoComponent } from './loja/loja-produto/loja-produto.component
         CadastroUsuarioComponent,
         PesquisaProdutoComponent,
         LojaPesquisaComponent,
-        LojaProdutoComponent
+        LojaProdutoComponent,
+        LojaEfetivarComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,6 +38,7 @@ import { LojaProdutoComponent } from './loja/loja-produto/loja-produto.component
         RouterModule.forRoot([
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'loja-produto', component: LojaProdutoComponent },
+            { path: 'loja-efetivar', component: LojaEfetivarComponent},
             { path: 'entrar', component: LoginComponent },
             { path: 'novo-usuario', component: CadastroUsuarioComponent },
             { path: 'pesquisar-produtos', component: PesquisaProdutoComponent, canActivate: [RotasGuard] },
