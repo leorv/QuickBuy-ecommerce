@@ -42,6 +42,10 @@ namespace QuickBuy.Repositorio.Config
                 .IsRequired()
                 .HasMaxLength(10);
 
+            builder.Property(p => p.Cidade)
+                .IsRequired()
+                .HasMaxLength(50);
+
             // ===== Um pedido tem uma forma de pagamento =====
             builder.HasOne(p => p.FormaPagamento);
 

@@ -15,6 +15,7 @@ namespace QuickBuy.Dominio.Entidades
         // Endereço de entrega
         public string EnderecoCompleto { get; set; }
         public string CEP { get; set; }
+        public string Cidade { get; set; }
         public string Estado { get; set; }
         public string NumeroEndereco { get; set; }
 

@@ -1,6 +1,11 @@
-import { Produto } from './../../models/Produto';
-import { CarrinhoCompras } from './../carrinho-compras';
+import { PedidoService } from './../../servicos/pedido/pedido.service';
 import { Component, OnInit } from '@angular/core';
+
+import { Pedido } from '../../models/Pedido';
+import { ItemPedido } from './../../models/ItemPedido';
+import { Produto } from './../../models/Produto';
+import { UsuarioService } from './../../servicos/usuario/usuario.service';
+import { CarrinhoCompras } from './../carrinho-compras';
 
 @Component({
     selector: 'app-loja-efetivar',
@@ -13,7 +18,10 @@ export class LojaEfetivarComponent implements OnInit {
     produtos: Produto[];
     total: number;
 
-    constructor() { }
+    constructor(
+        private usuarioServico: UsuarioService,
+        private pedidoServico: PedidoService
+    ) { }
 
     ngOnInit() {
         this.carrinhoCompras = new CarrinhoCompras();
@@ -42,6 +50,46 @@ export class LojaEfetivarComponent implements OnInit {
 
     atualizarTotal() {
         this.total = this.produtos.reduce((acc, produto) => acc + produto.preco, 0);
+    }
+
+    efetivarCompra() {
+        this.pedidoServico.efetivarCompra(this.criarPedido()).subscribe({
+            next: (pedidoId: number) => {
+
+            },
+            error: err => {
+                console.log(err);
+            }
+        });        
+    }
+
+    criarPedido(): Pedido {
+        let pedido = new Pedido();
+        pedido.usuarioId = this.usuarioServico.usuario.id;
+
+        // TODO: Form para preenchimento das informações do pedido.
+        // Quebra galho abaixo.
+        pedido.cep = '12345678';
+        pedido.estado = 'São Paulo';
+        pedido.cidade = 'Marília';
+        pedido.dataPrevisaoEntrega = new Date();
+        pedido.formaPagamentoId = 1;
+        pedido.numeroEndereco = '12';
+        pedido.enderecoCompleto = 'Av. Santo Antônio';
+        pedido.dataPedido = new Date();
+
+        this.produtos = this.carrinhoCompras.obterProdutos();
+        for (let produto of this.produtos) {
+            let itemPedido = new ItemPedido();
+            itemPedido.produtoId = produto.id;
+            if (!produto.quantidade) {
+                produto.quantidade = 1;
+            }
+            itemPedido.quantidade = produto.quantidade;
+            pedido.itensPedido.push(itemPedido);
+        }
+
+        return pedido;
     }
 
 }
