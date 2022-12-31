@@ -22,6 +22,7 @@ namespace QuickBuy.Web.Controllers
             _pedidoRepositorio = pedidoRepositorio;
         }
 
+        [HttpPost]
         public IActionResult Post([FromBody] Pedido pedido)
         {
             try

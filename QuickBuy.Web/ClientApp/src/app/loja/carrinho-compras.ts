@@ -46,4 +46,8 @@ export class CarrinhoCompras {
         return false;
     }
 
+    limparCarrinho() {
+        localStorage.setItem('produtosLocalStorage', '');
+    }
+
 }
