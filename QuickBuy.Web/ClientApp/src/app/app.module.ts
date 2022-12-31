@@ -38,7 +38,7 @@ import { LojaEfetivarComponent } from './loja/loja-efetivar/loja-efetivar.compon
         RouterModule.forRoot([
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'loja-produto', component: LojaProdutoComponent },
-            { path: 'loja-efetivar', component: LojaEfetivarComponent},
+            { path: 'loja-efetivar', component: LojaEfetivarComponent, canActivate: [RotasGuard] },
             { path: 'entrar', component: LoginComponent },
             { path: 'novo-usuario', component: CadastroUsuarioComponent },
             { path: 'pesquisar-produtos', component: PesquisaProdutoComponent, canActivate: [RotasGuard] },

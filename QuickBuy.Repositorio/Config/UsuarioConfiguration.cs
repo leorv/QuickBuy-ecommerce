@@ -35,6 +35,12 @@ namespace QuickBuy.Repositorio.Config
                 .IsRequired()
                 .HasMaxLength(50);
 
+            // ===== Administrador =====
+            builder.Property(u => u.Administrador)
+                .IsRequired()
+                .HasColumnType("bit")
+                .HasDefaultValue(false);
+
             // ===== Usuário tem muitos pedidos, um pedido tem um usuário =====
             builder.HasMany(u => u.Pedidos)
                 .WithOne(p => p.usuario);
