@@ -39,4 +39,11 @@ export class CarrinhoCompras {
         localStorage.setItem('produtosLocalStorage', JSON.stringify(produtos));
     }
 
+    temItens(): boolean {
+        if (this.obterProdutos()) {
+            return true;
+        }
+        return false;
+    }
+
 }

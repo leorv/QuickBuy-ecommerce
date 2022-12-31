@@ -1,3 +1,4 @@
+import { CarrinhoCompras } from './../loja/carrinho-compras';
 import { Usuario } from './../models/Usuario';
 import { UsuarioService } from './../servicos/usuario/usuario.service';
 import { Router } from '@angular/router';
@@ -10,6 +11,7 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
     isExpanded = false;
+    carrinhoCompras: CarrinhoCompras = new CarrinhoCompras();
 
     get usuario(): Usuario {
         return this.usuarioService.usuario;
@@ -35,6 +37,10 @@ export class NavMenuComponent {
 
     usuarioAdministrador(): boolean {
         return this.usuarioService.usuario_administrador();
+    }
+
+    carrinhoTemItens(): boolean {
+        return this.carrinhoCompras.temItens();
     }
 
     sair(){

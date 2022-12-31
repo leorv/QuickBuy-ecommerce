@@ -20,3 +20,8 @@ html {
 .clicavel {
     cursor: pointer;
 }
+
+.carrinho {
+    width: 32px;
+    height: 32px;
+}

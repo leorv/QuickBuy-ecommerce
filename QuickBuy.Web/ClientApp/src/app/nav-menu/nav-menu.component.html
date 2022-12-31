@@ -66,6 +66,12 @@
             </ul>
           </li>
 
+          <li class="nav-item" *ngIf="usuarioLogado() && carrinhoTemItens()" >
+            <a class="nav-link text-dark" [routerLink]="['/loja-efetivar']" >
+                <img class="carrinho" src="assets/carrinho.png">
+            </a>
+          </li>
+
           <!-- <li
             class="nav-item"
             [routerLinkActive]="['link-active']"
