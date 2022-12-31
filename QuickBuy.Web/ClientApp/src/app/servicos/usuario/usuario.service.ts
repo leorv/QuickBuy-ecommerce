@@ -29,20 +29,24 @@ export class UsuarioService {
         this.baseUrl = baseUrl;
     }
 
-    public usuario_autenticado(): boolean {
+    usuario_autenticado(): boolean {
         return this._usuario != null && this._usuario.email != '' && this._usuario.senha != '';
     }
 
-    public limpar_sessao() {
+    usuario_administrador(): boolean {
+        return this.usuario_autenticado() && this.usuario.administrador;
+    }
+
+    limpar_sessao() {
         sessionStorage.setItem('usuario-autenticado', '');
         this._usuario = null;
     }
 
-    public verificarUsuario(usuario: Usuario): Observable<Usuario> {
+    verificarUsuario(usuario: Usuario): Observable<Usuario> {
         return this.http.post<Usuario>(`${this.baseUrl}api/usuarios/VerificarUsuario`, JSON.stringify(usuario), { headers: this.headers } );
     }
 
-    public cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
+    cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
         return this.http.post<Usuario>(`${this.baseUrl}api/usuarios`, JSON.stringify(usuario), { headers: this.headers });
 
     }

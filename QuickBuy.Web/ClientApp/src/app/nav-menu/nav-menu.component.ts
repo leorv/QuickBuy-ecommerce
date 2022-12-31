@@ -29,8 +29,12 @@ export class NavMenuComponent {
         this.isExpanded = !this.isExpanded;
     }
 
-    public usuarioLogado(): boolean {
+    usuarioLogado(): boolean {
         return this.usuarioService.usuario_autenticado();
+    }
+
+    usuarioAdministrador(): boolean {
+        return this.usuarioService.usuario_administrador();
     }
 
     sair(){
