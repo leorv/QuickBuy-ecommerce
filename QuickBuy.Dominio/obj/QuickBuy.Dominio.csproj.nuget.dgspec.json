@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leona\\source\\repos\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj": {}
+    "/home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/QuickBuy.Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leona\\source\\repos\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj": {
+    "/home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/QuickBuy.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leona\\source\\repos\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj",
+        "projectUniqueName": "/home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
         "projectName": "QuickBuy.Dominio",
-        "projectPath": "C:\\Users\\leona\\source\\repos\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj",
-        "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leona\\source\\repos\\QuickBuy\\QuickBuy.Dominio\\obj\\",
+        "projectPath": "/home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
+        "packagesPath": "/home/leonardo/.nuget/packages/",
+        "outputPath": "/home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/home/leonardo/.dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\leona\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/leonardo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
