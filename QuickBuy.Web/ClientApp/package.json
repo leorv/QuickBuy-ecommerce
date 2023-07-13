@@ -1,9 +1,9 @@
 {
   "name": "QuickBuy.Web",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --o # --port=4200",
     "build": "ng build",
     "build:ssr": "ng run QuickBuy.Web:server:dev",
     "test": "ng test",

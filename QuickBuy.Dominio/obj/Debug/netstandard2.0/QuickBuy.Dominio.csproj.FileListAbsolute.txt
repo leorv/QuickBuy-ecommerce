@@ -16,3 +16,12 @@ C:/Users/leona/source/repos/QuickBuy/QuickBuy.Dominio/obj/Debug/netstandard2.0/Q
 /home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/obj/Debug/netstandard2.0/QuickBuy.Dominio.AssemblyInfo.cs
 /home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/obj/Debug/netstandard2.0/QuickBuy.Dominio.dll
 /home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/obj/Debug/netstandard2.0/QuickBuy.Dominio.pdb
+/app/QuickBuy.Dominio/bin/Debug/netstandard2.0/QuickBuy.Dominio.deps.json
+/app/QuickBuy.Dominio/bin/Debug/netstandard2.0/QuickBuy.Dominio.dll
+/app/QuickBuy.Dominio/bin/Debug/netstandard2.0/QuickBuy.Dominio.pdb
+/app/QuickBuy.Dominio/obj/Debug/netstandard2.0/QuickBuy.Dominio.csprojAssemblyReference.cache
+/app/QuickBuy.Dominio/obj/Debug/netstandard2.0/QuickBuy.Dominio.csproj.CoreCompileInputs.cache
+/app/QuickBuy.Dominio/obj/Debug/netstandard2.0/QuickBuy.Dominio.AssemblyInfoInputs.cache
+/app/QuickBuy.Dominio/obj/Debug/netstandard2.0/QuickBuy.Dominio.AssemblyInfo.cs
+/app/QuickBuy.Dominio/obj/Debug/netstandard2.0/QuickBuy.Dominio.dll
+/app/QuickBuy.Dominio/obj/Debug/netstandard2.0/QuickBuy.Dominio.pdb

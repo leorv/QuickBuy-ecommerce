@@ -22,3 +22,15 @@ C:/Users/leona/source/repos/QuickBuy/QuickBuy.Repositorio/obj/Debug/netstandard2
 /home/leonardo/Documentos/Source/quickbuy/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.csproj.CopyComplete
 /home/leonardo/Documentos/Source/quickbuy/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.dll
 /home/leonardo/Documentos/Source/quickbuy/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.pdb
+/app/QuickBuy.Repositorio/bin/Debug/netstandard2.0/QuickBuy.Repositorio.deps.json
+/app/QuickBuy.Repositorio/bin/Debug/netstandard2.0/QuickBuy.Repositorio.dll
+/app/QuickBuy.Repositorio/bin/Debug/netstandard2.0/QuickBuy.Repositorio.pdb
+/app/QuickBuy.Repositorio/bin/Debug/netstandard2.0/QuickBuy.Dominio.dll
+/app/QuickBuy.Repositorio/bin/Debug/netstandard2.0/QuickBuy.Dominio.pdb
+/app/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.csprojAssemblyReference.cache
+/app/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.csproj.CoreCompileInputs.cache
+/app/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.AssemblyInfoInputs.cache
+/app/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.AssemblyInfo.cs
+/app/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.csproj.CopyComplete
+/app/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.dll
+/app/QuickBuy.Repositorio/obj/Debug/netstandard2.0/QuickBuy.Repositorio.pdb

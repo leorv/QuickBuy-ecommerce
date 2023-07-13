@@ -1,5 +1,5 @@
 {
     "ConnectionStrings": {
-        "QuickBuyDB": "Server=localhost;Database=quickbuydb;Uid=marla;Pwd=12345;"
+        "QuickBuyDB": "Server=172.17.0.3;Port=3306;Database=quickbuydb;User=root;Password=numsey;"
     }
 }

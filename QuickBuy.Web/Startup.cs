@@ -16,15 +16,15 @@ namespace QuickBuy.Web
 {
     public class Startup
     {
-        // Um arquivo de json que terá as configurações do nosso sistema.
-        // Essa atribuição será feita no método construtor.
+        // Um arquivo de json que terï¿½ as configuraï¿½ï¿½es do nosso sistema.
+        // Essa atribuiï¿½ï¿½o serï¿½ feita no mï¿½todo construtor.
         public IConfiguration Configuration { get; }
 
         public Startup()
         {
-            // Construtor de configurações, arquivo JSON.
+            // Construtor de configuraï¿½ï¿½es, arquivo JSON.
             // config.json deve ter como propriedade no projeto o "Copiar sempre"
-            // para o diretório de saída.
+            // para o diretï¿½rio de saï¿½da.
             // <ItemGroup>
             //  < Content Update = "config.json" >
             //    < CopyToOutputDirectory > Always </ CopyToOutputDirectory >
@@ -65,7 +65,7 @@ namespace QuickBuy.Web
         }
 
         // Configurar o pipeline do ASP .NET Core
-        // Como ele trata cada requisição.
+        // Como ele trata cada requisiï¿½ï¿½o.
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -101,18 +101,18 @@ namespace QuickBuy.Web
                 if (env.IsDevelopment())
                 {
                     /**
-                     * É possível usar o processo do Angular em separado com o do
+                     * ï¿½ possï¿½vel usar o processo do Angular em separado com o do
                      * ASP .NET Core.
                      * Comentar a linha abaixo spa.Use...
-                     * Quando colocar a aplicação do .net pra rodar, ele vai rodar ela e a do
+                     * Quando colocar a aplicaï¿½ï¿½o do .net pra rodar, ele vai rodar ela e a do
                      * Angular.
                      * dar um ng serve.
-                     * Ao invés de usar o CliServer, usar:
+                     * Ao invï¿½s de usar o CliServer, usar:
                      * spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
                      */
-                    // spa.UseAngularCliServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
-
+                    // spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
+                    
+                    spa.UseAngularCliServer(npmScript: "start");
                 }
             });
         }

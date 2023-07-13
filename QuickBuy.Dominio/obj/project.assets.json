@@ -179,23 +179,23 @@
     ]
   },
   "packageFolders": {
-    "/home/leonardo/.nuget/packages/": {},
-    "/home/leonardo/.dotnet/sdk/NuGetFallbackFolder": {}
+    "/root/.nuget/packages/": {},
+    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
+      "projectUniqueName": "/app/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
       "projectName": "QuickBuy.Dominio",
-      "projectPath": "/home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
-      "packagesPath": "/home/leonardo/.nuget/packages/",
-      "outputPath": "/home/leonardo/Documentos/Source/quickbuy/QuickBuy.Dominio/obj/",
+      "projectPath": "/app/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/app/QuickBuy.Dominio/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/home/leonardo/.dotnet/sdk/NuGetFallbackFolder"
+        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/leonardo/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
