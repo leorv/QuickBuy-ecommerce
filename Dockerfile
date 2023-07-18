@@ -1,25 +1,28 @@
-# Dockerfile para o contêiner quickbuy-web
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-bionic AS build
+LABEL version="1.0.1" description="Aplicação ASP .NET Core Angular App"
+WORKDIR /source
 
-# Usar a imagem base do SDK do .NET Core 2.2
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2
+# Instalação do Node.js 10.x
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
 
-# Diretório de trabalho dentro do contêiner
-WORKDIR /app
-
-# Copiar os arquivos do projeto para o contêiner
-COPY . .
-
-# Restaurar as dependências do projeto
+# copy csproj and restore as distinct layers
+COPY *.sln .
+COPY global.json .
+COPY QuickBuy.Web/*.csproj ./QuickBuy.Web/
+COPY QuickBuy.Repositorio/*.csproj ./QuickBuy.Repositorio/
+COPY QuickBuy.Dominio/*.csproj ./QuickBuy.Dominio/
 RUN dotnet restore
 
-# Publicar a aplicação
-RUN dotnet publish -c Release -o out
+# copy everything else and build app
+COPY QuickBuy.Web/. ./QuickBuy.Web/
+COPY QuickBuy.Repositorio/. ./QuickBuy.Repositorio/
+COPY QuickBuy.Dominio/. ./QuickBuy.Dominio/
+RUN dotnet publish QuickBuy.Web/QuickBuy.Web.csproj -c release -o /app
 
-# Definir a variável de ambiente para o ASP.NET Core
-# ENV ASPNETCORE_URLS=http://+:4200
-
-# Expor a porta 4200 do contêiner
-EXPOSE 4200
-
-# Comando para iniciar a aplicação
-CMD ["dotnet", "out/QuickBuy.Web.dll"]
+# final stage/image
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
+WORKDIR /app
+COPY --from=build /app ./
+EXPOSE 80/tcp
+ENTRYPOINT ["dotnet", "QuickBuy.Web.dll"]
