@@ -57,7 +57,7 @@ export class LojaEfetivarComponent implements OnInit {
     efetivarCompra() {
         this.pedidoServico.efetivarCompra(this.criarPedido()).subscribe({
             next: (pedidoId: number) => {
-                sessionStorage.setItem('pedidoId', pedidoId.toString());
+                localStorage.setItem('pedidoId', pedidoId.toString());
                 this.produtos = [];
                 this.carrinhoCompras.limparCarrinho();
                 this.router.navigate(['/compra-realizada-sucesso']);

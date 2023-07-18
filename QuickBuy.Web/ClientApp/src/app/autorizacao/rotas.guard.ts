@@ -19,7 +19,7 @@ export class RotasGuard implements CanActivate {
         next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot)
         : Observable<boolean> | Promise<boolean> | boolean {
-        var autenticado = sessionStorage.getItem("usuario-autenticado");
+        var autenticado = localStorage.getItem("usuario-autenticado");
         if (this.usuarioService.usuario_autenticado()) {
             return true;
         }

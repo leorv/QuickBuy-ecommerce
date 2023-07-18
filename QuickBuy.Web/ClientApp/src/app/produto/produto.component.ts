@@ -26,7 +26,7 @@ export class ProdutoComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        var produtoSessao = sessionStorage.getItem('produtoSessao');
+        var produtoSessao = localStorage.getItem('produtoSessao');
         if (produtoSessao) {
             this.produto = JSON.parse(produtoSessao);
         } else {

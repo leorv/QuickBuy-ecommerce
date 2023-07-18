@@ -5,15 +5,15 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 4200:4200
+      - 3000:80
     depends_on:
-      - mysql5.7-quickbuy
+      - quickbuy-db
 
-  mysql5.7-quickbuy:
+  quickbuy-db:
     image: mysql:5.7
     command: --default-authentication-plugin=mysql_native_password
     ports:
-      - 3306:33060
+      - 3306:3306
     volumes:
       - quickbuydb:/var/lib/mysql
     environment:

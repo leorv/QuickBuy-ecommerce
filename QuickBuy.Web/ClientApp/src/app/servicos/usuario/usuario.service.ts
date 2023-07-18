@@ -15,7 +15,7 @@ export class UsuarioService {
     }
     set usuario(value) {
         this._usuario = value;
-        sessionStorage.setItem('usuario-autenticado', JSON.stringify(value));
+        localStorage.setItem('usuario-autenticado', JSON.stringify(value));
     }
 
     get headers() {
@@ -38,7 +38,7 @@ export class UsuarioService {
     }
 
     limpar_sessao() {
-        sessionStorage.setItem('usuario-autenticado', '');
+        localStorage.setItem('usuario-autenticado', '');
         this._usuario = null;
     }
 

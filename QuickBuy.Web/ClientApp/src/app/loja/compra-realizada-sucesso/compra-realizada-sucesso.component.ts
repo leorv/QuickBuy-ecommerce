@@ -12,7 +12,7 @@ export class CompraRealizadaSucessoComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        this.pedidoId = sessionStorage.getItem('pedidoId');
+        this.pedidoId = localStorage.getItem('pedidoId');
     }
 
 }

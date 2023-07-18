@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
             .subscribe({
                 next: usuario => {
                     // var usuarioRetorno: Usuario = data;
-                    // sessionStorage.setItem('usuario-autenticado', '1');
-                    // sessionStorage.setItem('usuario-email', usuarioRetorno.email);
+                    // localStorage.setItem('usuario-autenticado', '1');
+                    // localStorage.setItem('usuario-email', usuarioRetorno.email);
                     this.usuarioServico.usuario = usuario;
 
                     if (this.returnUrl == null) {
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
         // if (this.usuario.email == 'leo@hotmail.com' && this.usuario.senha == 'marla') {
         //     alert('usuário autenticado.')
         //     // localStorage
-        //     sessionStorage.setItem("usuario-autenticado", "1");
+        //     localStorage.setItem("usuario-autenticado", "1");
         //     this.router.navigate([this.returnUrl]);
         // }
     }

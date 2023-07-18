@@ -21,7 +21,7 @@ export class LojaProdutoComponent implements OnInit {
 
     ngOnInit() {
         this.carrinhoCompras = new CarrinhoCompras();
-        var produtoDetalhe = sessionStorage.getItem('produtoDetalhe');
+        var produtoDetalhe = localStorage.getItem('produtoDetalhe');
         if (produtoDetalhe) {
             this.produto = JSON.parse(produtoDetalhe);
         }

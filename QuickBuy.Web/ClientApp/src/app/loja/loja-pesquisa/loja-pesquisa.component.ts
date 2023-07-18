@@ -30,7 +30,7 @@ export class LojaPesquisaComponent implements OnInit {
     }
 
     visualizarProduto(produto: Produto) {
-        sessionStorage.setItem('produtoDetalhe', JSON.stringify(produto));
+        localStorage.setItem('produtoDetalhe', JSON.stringify(produto));
         this.router.navigate(['/loja-produto']);
     }
 
