@@ -78,7 +78,12 @@ namespace QuickBuy.Web.Controllers
                 IFormFile formFile = _httpContextAcessor.HttpContext.Request.Form.Files["arquivoEnviado"];
                 string novoNomeArquivo = GerarNovoNomeParaArquivo(formFile);
 
-                string pastaDasImagens = $"{_hostingEnvironment.WebRootPath}\\imagens-produtos\\";
+                // Windows:
+                // string pastaDasImagens = $"{_hostingEnvironment.WebRootPath}\\imagens-produtos\\";
+
+                // GNU/Linux
+                string pastaDasImagens = $"{_hostingEnvironment.WebRootPath}/imagens-produtos/";
+
                 string nomeCompleto = $"{pastaDasImagens}{novoNomeArquivo}";
 
                 // Gravando o arquivo no servidor.
