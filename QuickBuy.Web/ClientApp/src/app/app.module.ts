@@ -2,7 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { TruncateModule } from 'ng2-truncate';
 
 import { AppComponent } from './app.component';
@@ -17,6 +16,7 @@ import { LojaPesquisaComponent } from './loja/loja-pesquisa/loja-pesquisa.compon
 import { LojaProdutoComponent } from './loja/loja-produto/loja-produto.component';
 import { LojaEfetivarComponent } from './loja/loja-efetivar/loja-efetivar.component';
 import { CompraRealizadaSucessoComponent } from './loja/compra-realizada-sucesso/compra-realizada-sucesso.component';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
     declarations: [
@@ -33,20 +33,11 @@ import { CompraRealizadaSucessoComponent } from './loja/compra-realizada-sucesso
         CompraRealizadaSucessoComponent
     ],
     imports: [
-        BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+        BrowserModule,
         HttpClientModule,
+        AppRoutingModule,
         FormsModule,
-        TruncateModule,
-        RouterModule.forRoot([
-            { path: '', component: HomeComponent, pathMatch: 'full' },
-            { path: 'loja-produto', component: LojaProdutoComponent },
-            { path: 'loja-efetivar', component: LojaEfetivarComponent, canActivate: [RotasGuard] },
-            { path: 'entrar', component: LoginComponent },
-            { path: 'novo-usuario', component: CadastroUsuarioComponent },
-            { path: 'pesquisar-produtos', component: PesquisaProdutoComponent, canActivate: [RotasGuard] },
-            { path: 'produto', component: ProdutoComponent, canActivate: [RotasGuard] },
-            { path: 'compra-realizada-sucesso', component: CompraRealizadaSucessoComponent}
-        ])
+        TruncateModule
     ],
     providers: [],
     bootstrap: [AppComponent]
