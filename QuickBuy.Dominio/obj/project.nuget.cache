@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h91MxgzI7m3D/rYs1LTWO3Z8zHQ/9NhyZ++1sqKCNEIju2YpuvowoDA8Pg3Tznsz2KK9jQfKwEHKv2aq8DsEAg==",
+  "dgSpecHash": "WXv/5q467mc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\leona\\source\\repos\\QuickBuy\\QuickBuy.Dominio\\QuickBuy.Dominio.csproj",
-  "expectedPackageFiles": [
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
-  ],
+  "projectFilePath": "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,32 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/app/QuickBuy.Dominio/QuickBuy.Dominio.csproj": {}
+    "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/QuickBuy.Dominio.csproj": {}
   },
   "projects": {
-    "/app/QuickBuy.Dominio/QuickBuy.Dominio.csproj": {
+    "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/QuickBuy.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/app/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
+        "projectUniqueName": "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
         "projectName": "QuickBuy.Dominio",
-        "projectPath": "/app/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/app/QuickBuy.Dominio/obj/",
+        "projectPath": "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/QuickBuy.Dominio.csproj",
+        "packagesPath": "/home/leonardo/.nuget/packages/",
+        "outputPath": "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/leonardo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -34,23 +32,33 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "netstandard2.0": {
-          "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            }
-          },
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.407/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
