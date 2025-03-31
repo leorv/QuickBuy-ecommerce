@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuickBuy.Dominio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+736b9c7473b6cc68f353d28be9b8558f48e92427")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2a9de3a07f3bd08946670e12710ec328683d361")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuickBuy.Dominio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuickBuy.Dominio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

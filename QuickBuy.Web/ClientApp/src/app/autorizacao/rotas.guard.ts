@@ -1,12 +1,12 @@
 import { UsuarioService } from './../servicos/usuario/usuario.service';
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
-export class RotasGuard implements CanActivate {
+export class RotasGuard  {
 
     constructor(
         private router: Router,
