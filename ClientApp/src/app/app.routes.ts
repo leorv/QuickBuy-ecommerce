@@ -17,6 +17,7 @@ export const routes: Routes = [
     { path: 'novo-usuario', component: CadastroUsuarioComponent },
     { path: 'pesquisar-produtos', component: PesquisaProdutoComponent, canActivate: [RotasGuard] },
     { path: 'produto', component: ProdutoComponent, canActivate: [RotasGuard] },
+    { path: 'produto:id', component: ProdutoComponent, canActivate: [RotasGuard] },
     { path: 'compra-realizada-sucesso', component: CompraRealizadaSucessoComponent}
 ];
 

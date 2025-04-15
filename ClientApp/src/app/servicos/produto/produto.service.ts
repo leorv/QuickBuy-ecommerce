@@ -1,8 +1,9 @@
 import { Observable } from 'rxjs';
 import { Produto } from './../../models/Produto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { UploadImagemResponse } from '../../models/upload-image-response';
 
 @Injectable({
     providedIn: 'root'
@@ -24,22 +25,21 @@ export class ProdutoService {
         return this.http.get<Produto>(`${this._apiUrl}/${id}`);
     }
 
-    criar(produto: Produto): Observable<Produto> { 
-        return this.http.post<Produto>(this._apiUrl, produto);
+    criar(produto: Produto): Observable<void> { 
+        return this.http.post<void>(this._apiUrl, produto);
     }
 
-    atualizar(produto: Produto): Observable<Produto> {
-        return this.http.put<Produto>(this._apiUrl, produto);
+    atualizar(produto: Produto): Observable<void> {
+        return this.http.put<void>(this._apiUrl, produto);
     }
 
-    deletar(id: number): Observable<Produto[]> {
-        return this.http.post<Produto[]>(this._apiUrl, id); 
+    deletar(id: number): Observable<void> {
+        return this.http.delete<void>(`${this._apiUrl}/${id}`);
     }
 
-    enviarArquivo(arquivoSelecionado: File): Observable<any> {
+    enviarArquivo(arquivoSelecionado: File): Observable<UploadImagemResponse> {
         const formData: FormData = new FormData();
         formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name);
-
-        return this.http.post<any>(`${this._apiUrl}/EnviarArquivo`, formData);
+        return this.http.post<any>(`${this._apiUrl}/upload`, formData);
     }
 }

@@ -2,7 +2,7 @@
 
 <button class="btn btn-primary mb-2" (click)="adicionarProduto()" >Adicionar produtos</button>
 
-<p *ngIf="!produtos">Carregando produtos...</p>
+<p *ngIf="carregando">Carregando produtos...</p>
 
 
 <table class="table table-hover" *ngIf="produtos">
@@ -21,7 +21,7 @@
             <td>{{ produto.nome }}</td>
             <td>{{ produto.descricao }}</td>
             <td>{{ produto.preco }}</td>
-            <td> <img src="../../../../../imagens-produtos/{{ produto.nomeArquivo }}" alt=""> </td>
+            <td> <img [src]="`{{ caminhoImagem }}{{ produto.nomeArquivo }}`" alt=""> </td>
             <td> <button class="btn btn-secondary btn-sm" (click)="editarProduto(produto)" >Editar</button> </td>
             <td> <button class="btn btn-danger btn-sm" (click)="deletarProduto(produto)"  >Deletar</button> </td>
         </tr>

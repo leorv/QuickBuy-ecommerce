@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 
+
+/*
+TODO: Montar um serviço simulado de pagamento (mock).
+Criar um backend fake com JSON Server ou similar pra testar.
+Integrar com API real tipo PagSeguro, Mercado Pago ou Stripe no futuro.
+*/
 @Injectable({
   providedIn: 'root'
 })

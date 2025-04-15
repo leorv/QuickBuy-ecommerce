@@ -10,6 +10,6 @@ namespace QuickBuy.Dominio.Contratos
         T ObterPorId(int id);
         IEnumerable<T> ObterTodos();
         void Atualizar(T entity);
-        void Remover(T entity);
+        void Remover(int id);
     }
 }

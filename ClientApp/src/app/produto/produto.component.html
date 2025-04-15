@@ -21,7 +21,7 @@
   class="invalid-feedback mb-3"
   *ngIf="nome.invalid && (nome.dirty || nome.touched)"
 >
-  <div *ngIf="nome.errors.required">O nome deve ser informado.</div>
+  <div *ngIf="nome.errors?.['required']">O nome deve ser informado.</div>
 </div>
 
 <!-- Descrição -->
@@ -46,8 +46,8 @@
   class="invalid-feedback mb-3"
   *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)"
 >
-  <div *ngIf="descricao.errors.required">A desrição deve ser preenchida.</div>
-  <div *ngIf="descricao.errors.minlength" >A descrição deve ter no mínimo 8 caracteres.</div>
+  <div *ngIf="descricao.errors?.['required']">A desrição deve ser preenchida.</div>
+  <div *ngIf="descricao.errors?.['minlength']" >A descrição deve ter no mínimo 8 caracteres.</div>
 </div>
 
 <!-- Preço -->
@@ -71,7 +71,7 @@
   class="invalid-feedback mb-3"
   *ngIf="preco.invalid && (preco.dirty || preco.touched)"
 >
-  <div *ngIf="preco.errors.required">Preço é obrigatório.</div>
+  <div *ngIf="preco.errors?.['required']">Preço é obrigatório.</div>
 </div>
 
 <!-- Imagem -->
@@ -82,7 +82,7 @@
       class="custom-file-input"
       id="inputImage"
       aria-describedby="inputImagemAdd"
-      (change)="inputImageChange($event.target.files)"
+      (change)="inputImageChange($event)"
     />
     <label class="custom-file-label" for="inputImage">Escolha a imagem</label>
   </div>

@@ -1,36 +1,44 @@
+import { CommonModule } from '@angular/common';
 import { Produto } from './../models/Produto';
 import { ProdutoService } from './../servicos/produto/produto.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-produto',
+    imports: [CommonModule, FormsModule, RouterModule],
     templateUrl: './produto.component.html',
     styleUrls: ['./produto.component.css'],
-    preserveWhitespaces: true
+    preserveWhitespaces: true,
+    standalone: true
 })
 export class ProdutoComponent implements OnInit {
 
-    nome: string;
-    liberadoParaVenda: boolean;
+    productId: number = 0;
+    nome: string = '';
+    liberadoParaVenda: boolean = false;
     produto: Produto = new Produto();
-    arquivoSelecionado: File;
+    arquivoSelecionado: File | null = null;
     ativarSpinner: boolean = false;
-    mensagem: string = null;
+    mensagem: string = '';
 
     stringImagem: any;
 
     constructor(
         private produtoService: ProdutoService,
-        private router: Router
+        private router: Router,
+        private route: ActivatedRoute
     ) { }
 
     ngOnInit() {
-        var produtoSessao = localStorage.getItem('produtoSessao');
-        if (produtoSessao) {
-            this.produto = JSON.parse(produtoSessao);
-        } else {
-            this.produto = new Produto();
+        const id = this.route.snapshot.paramMap.get('id');
+        if (id) {
+            this.productId = +id;
+            this.produtoService.obterPorId(this.productId).subscribe({
+                next: (produto) => this.produto = produto,
+                error: (err) => console.error(err)
+            });
         }
     }
 
@@ -39,24 +47,54 @@ export class ProdutoComponent implements OnInit {
     }
 
     cadastrar() {
-        this.produtoService.cadastrar(this.produto)
-            .subscribe({
-                next: produto => {
-                    this.produto = produto;
-                    this.router.navigate(['/pesquisar-produtos']);
-                },
-                error: err => {
-                    console.error(err);
-                    this.mensagem = `Erro ao cadastrar: ${err.error}`;
-                }
-            });
+        if (this.productId != 0) {
+            this.atualizarProduto();
+        } else {
+            this.produtoService.criar(this.produto)
+                .subscribe({
+                    next: () => this.router.navigate(['/pesquisar-produtos']),
+                    error: err => {
+                        console.error(err);
+                        this.mensagem = `Erro ao cadastrar: ${err.error}`;
+                    }
+                });
+        }
     }
 
-    inputImageChange(files: FileList) {
-        // TODO: melhorar isso deixando essa responsabilidade unicamente com o cadastrar. Usar map, switchMap, para evitar subscribers aninhados.
+    atualizarProduto() {
+        if (!this.produto.id) {
+            this.mensagem = 'Produto inválido para atualização.';
+            return;
+        }
+
+        this.produtoService.atualizar(this.produto).subscribe({
+            next: () => this.router.navigate(['/pesquisar-produtos']),
+            error: err => {
+                console.error('Erro ao atualizar produto.', err);
+                this.mensagem = `Erro ao atualizar: ${err.error}`;
+            }
+        });
+    }
+
+    // TODO: Refatoração do serviço de produtos com RxJS moderno (switchMap, catchError).
+
+    inputImageChange(event: Event) {
+
+        const input = event.target as HTMLInputElement;
+
+        if (!input || !input.files || input.files.length === 0) {
+            alert('Arquivo inválido ou não selecionado');
+            return;
+        }
+
         this.ativarSpinner = true;
-        this.arquivoSelecionado = files.item(0);
-        alert(this.arquivoSelecionado.name);
+
+        this.arquivoSelecionado = input.files.item(0);
+
+        if (this.arquivoSelecionado == null) {
+            alert('Erro: Arquivo de imagem nulo.');
+            return;
+        }
 
         this.produtoService.enviarArquivo(this.arquivoSelecionado)
             .subscribe({
@@ -67,9 +105,7 @@ export class ProdutoComponent implements OnInit {
                     this.stringImagem = result;
                 },
                 error: err => {
-                    console.log('Ocorreu um erro ao tentar inserir a imagem.');
-
-                    console.error(err);
+                    console.error('Erro ao enviar a imagem.', err);
                     this.ativarSpinner = false;
                     this.mensagem = err.error;
                 }
