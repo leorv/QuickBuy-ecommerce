@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuickBuy.Dominio.Contratos;
 using QuickBuy.Dominio.Entidades;
@@ -14,11 +13,11 @@ namespace QuickBuy.Web.Controllers
     {
         private readonly IProdutoRepositorio _produtoRepositorio;
         private IHttpContextAccessor _httpContextAcessor;
-        private IHostingEnvironment _hostingEnvironment;
+        private IWebHostEnvironment _hostingEnvironment;
         public ProdutosController(
             IProdutoRepositorio produtoRepositorio,
             IHttpContextAccessor httpContextAccessor,
-            IHostingEnvironment hostingEnvironment
+            IWebHostEnvironment hostingEnvironment
             )
         {
             _produtoRepositorio = produtoRepositorio;
@@ -118,14 +117,13 @@ namespace QuickBuy.Web.Controllers
             return novoNomeDoArquivo;
         }
 
-        [HttpPost("Deletar")]
-        public IActionResult Deletar([FromBody] Produto produto)
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
         {
             try
             {
-                // Não é o cenário ideal.
-                _produtoRepositorio.Remover(produto);
-                return Ok(_produtoRepositorio.ObterTodos());
+                _produtoRepositorio.Remover(id);
+                return NoContent();
             }
             catch (Exception ex)
             {

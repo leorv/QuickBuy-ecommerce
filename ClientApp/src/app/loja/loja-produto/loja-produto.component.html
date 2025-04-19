@@ -1,0 +1,23 @@
+<ng-container *ngIf="produtoValido; else elseTemplate">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ caminhoImagem }}/imagens-produtos/{{ produto.nomeArquivo }}" alt="" />
+        </div>
+        <div class="col-md-6">
+            <div class="row mb-4 mt-4">
+                <h1>{{ produto.nome }}</h1>
+            </div>
+            <!-- <div class="row mb-4"> {{ produto.descricao }} </div> -->
+            < class="row mb-4">
+                <h2>{{ produto.preco | currency: 'BRL' }} </h2>
+        </div>
+        <div class="row mb-4">
+            <button class="btn btn-danger btn-lg" (click)="comprar()">Comprar</button>
+        </div>
+    </div>
+</ng-container>
+<ng-template #elseTemplate>
+    <div class="alert alert-danger mt-4">
+        {{ mensagemErro }}
+    </div>
+</ng-template>

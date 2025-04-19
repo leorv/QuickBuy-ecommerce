@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of produtos">
+            <td>
+              <img
+                src="{{ caminhoImagem }}/imagens-produtos/{{ produto.nomeArquivo }}"
+              />
+            </td>
+            <td>{{ produto.descricao }}</td>
+            <td>
+              <input
+                type="number"
+                class="form-control"
+                value="1"
+                (change)="atualizarPreco(produto, $event)"
+                [(ngModel)]="produto.quantidade"
+              />
+            </td>
+            <td>{{ produto.preco | number : "1.0-2" }}</td>
+            <td>
+              <button
+                class="btn btn-secondary btn-sm"
+                (click)="remover(produto)"
+              >
+                Remover
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">Resumo</div>
+        <div class="card-body">
+          <h4 class="mb-3">Total: {{ total | number:'1.0-2' }} </h4>
+          <button class="btn btn-danger">Efetivar compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
