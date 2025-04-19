@@ -1,6 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using QuickBuy.Dominio.Contratos;
@@ -31,14 +32,10 @@ builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 builder.Services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-// Era assim na versão 2.2. Não sei como fazer isso nesta nova versão do .net, será que tem um jeito certo de acessar a string de conexão?:
-// var connectionString = Configuration.GetConnectionString("QuickBuyDB");
-// builder.services.AddDbContext<QuickBuyContexto>(option => option.UseLazyLoadingProxies()
-//     .UseMySql(
-//         connectionString,
-//         m => m.MigrationsAssembly("QuickBuy.Repositorio")
-//     ));
+builder.Services.AddDbContext<QuickBuyContexto>(options =>
+    options.UseLazyLoadingProxies()
+        .UseMySql(builder.Configuration.GetConnectionString("QuickBuyDB"),
+            new MySqlServerVersion(new Version(8, 0, 21))));
 
 var app = builder.Build();
 

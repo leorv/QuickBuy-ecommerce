@@ -74,7 +74,11 @@ namespace QuickBuy.Web.Controllers
             try
             {
                 // Tratamento do arquivo de imagem
-                IFormFile formFile = _httpContextAcessor.HttpContext.Request.Form.Files["arquivoEnviado"];
+                IFormFile? formFile = _httpContextAcessor.HttpContext?.Request.Form.Files["arquivoEnviado"];
+                if (formFile == null)
+                {
+                    return BadRequest("Nenhum arquivo enviado. Referência nula.");
+                }
                 string novoNomeArquivo = GerarNovoNomeParaArquivo(formFile);
 
                 // Windows:
