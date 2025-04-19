@@ -1,0 +1,16 @@
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/QuickBuy.Repositorio.csproj.AssemblyReference.cache
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/QuickBuy.Repositorio.GeneratedMSBuildEditorConfig.editorconfig
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/QuickBuy.Repositorio.AssemblyInfoInputs.cache
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/QuickBuy.Repositorio.AssemblyInfo.cs
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/QuickBuy.Repositorio.csproj.CoreCompileInputs.cache
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/QuickBuy.Repositorio.sourcelink.json
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/bin/Debug/net8.0/QuickBuy.Repositorio.deps.json
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/bin/Debug/net8.0/QuickBuy.Repositorio.dll
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/bin/Debug/net8.0/QuickBuy.Repositorio.pdb
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/bin/Debug/net8.0/QuickBuy.Dominio.dll
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/bin/Debug/net8.0/QuickBuy.Dominio.pdb
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/QuickBuy.E050A3B8.Up2Date
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/QuickBuy.Repositorio.dll
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/refint/QuickBuy.Repositorio.dll
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/QuickBuy.Repositorio.pdb
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/Debug/net8.0/ref/QuickBuy.Repositorio.dll

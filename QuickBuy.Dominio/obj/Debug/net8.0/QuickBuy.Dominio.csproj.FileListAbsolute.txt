@@ -1,0 +1,12 @@
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/bin/Debug/net8.0/QuickBuy.Dominio.deps.json
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/bin/Debug/net8.0/QuickBuy.Dominio.dll
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/bin/Debug/net8.0/QuickBuy.Dominio.pdb
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/Debug/net8.0/QuickBuy.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/Debug/net8.0/QuickBuy.Dominio.AssemblyInfoInputs.cache
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/Debug/net8.0/QuickBuy.Dominio.AssemblyInfo.cs
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/Debug/net8.0/QuickBuy.Dominio.csproj.CoreCompileInputs.cache
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/Debug/net8.0/QuickBuy.Dominio.sourcelink.json
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/Debug/net8.0/QuickBuy.Dominio.dll
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/Debug/net8.0/refint/QuickBuy.Dominio.dll
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/Debug/net8.0/QuickBuy.Dominio.pdb
+/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/obj/Debug/net8.0/ref/QuickBuy.Dominio.dll

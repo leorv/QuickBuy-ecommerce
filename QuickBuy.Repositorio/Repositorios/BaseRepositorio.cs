@@ -48,5 +48,11 @@ namespace QuickBuy.Repositorio.Repositorios
         {
             QuickBuyContexto.Dispose();
         }
+
+        public void Remover(int id)
+        {
+            QuickBuyContexto.Set<T>().Remove(ObterPorId(id));
+            QuickBuyContexto.SaveChanges();
+        }
     }
 }
