@@ -2,13 +2,18 @@ import { Router } from '@angular/router';
 import { Produto } from './../../models/Produto';
 import { ProdutoService } from './../../servicos/produto/produto.service';
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
     selector: 'app-loja-pesquisa',
+    imports: [CommonModule],
     templateUrl: './loja-pesquisa.component.html',
-    styleUrls: ['./loja-pesquisa.component.css']
+    styleUrls: ['./loja-pesquisa.component.css'],
+    standalone: true
 })
 export class LojaPesquisaComponent implements OnInit {
+    caminhoImagem: string = `${environment.apiUrl}`;
 
     produtos: Produto[] = [];
 
@@ -30,8 +35,7 @@ export class LojaPesquisaComponent implements OnInit {
     }
 
     visualizarProduto(produto: Produto) {
-        localStorage.setItem('produtoDetalhe', JSON.stringify(produto));
-        this.router.navigate(['/loja-produto']);
+        this.router.navigate(['/loja-produto', produto.id]);
     }
 
 }

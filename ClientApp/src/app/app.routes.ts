@@ -11,13 +11,13 @@ import { LoginComponent } from './usuario/login/login.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'loja-produto', component: LojaProdutoComponent },
+    { path: 'loja-produto:id', component: LojaProdutoComponent },
     { path: 'loja-efetivar', component: LojaEfetivarComponent, canActivate: [RotasGuard] },
     { path: 'entrar', component: LoginComponent },
     { path: 'novo-usuario', component: CadastroUsuarioComponent },
     { path: 'pesquisar-produtos', component: PesquisaProdutoComponent, canActivate: [RotasGuard] },
     { path: 'produto', component: ProdutoComponent, canActivate: [RotasGuard] },
     { path: 'produto:id', component: ProdutoComponent, canActivate: [RotasGuard] },
-    { path: 'compra-realizada-sucesso', component: CompraRealizadaSucessoComponent}
+    { path: 'compra-realizada-sucesso:id', component: CompraRealizadaSucessoComponent, canActivate: [RotasGuard]}
 ];
 

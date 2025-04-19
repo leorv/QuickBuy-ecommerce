@@ -1,20 +1,21 @@
 import { ItemPedido } from './ItemPedido';
 
 export class Pedido {
-    id: number;
-    dataPedido: Date;
-    dataPrevisaoEntrega: Date;
-    enderecoCompleto: string;
-    cep: string;
-    cidade: string;
-    estado: string;
-    numeroEndereco: string;
-    formaPagamentoId: number;
-    usuarioId: number;
+    id: number = 0;
+    dataPedido: Date = new Date();
+    dataPrevisaoEntrega: Date = new Date();
+    enderecoCompleto: string = '';
+    cep: string = '';
+    cidade: string = '';
+    estado: string = '';
+    numeroEndereco: string = '';
+    formaPagamentoId: number = 0;
+    usuarioId: number = 0;
+    itensPedido: ItemPedido[] = [];
 
-    itensPedido: ItemPedido[];
-
-    constructor() {
-        this.itensPedido = [];
+    constructor(data?: Partial<Pedido>) {
+        Object.assign(this, data);
+        // Garante que itensPedido seja um array mesmo que venha undefined
+        this.itensPedido = data?.itensPedido ?? [];
     }
 }

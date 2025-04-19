@@ -1,3 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
+import { PedidoService } from './../../servicos/pedido/pedido.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompraRealizadaSucessoComponent implements OnInit {
 
-    pedidoId: string;
+    pedidoId: string = '';
+    mensagemErro: string = '';
 
-    constructor() { }
+    constructor(
+        private pedidoService: PedidoService,
+        private route: ActivatedRoute
+    ) { }
 
     ngOnInit() {
-        this.pedidoId = localStorage.getItem('pedidoId');
+        const pedidoId = this.route.snapshot.paramMap.get('id');
+        if (pedidoId == null) {
+            this.mensagemErro = 'Ocorreu um erro ao tentarmos buscar o número do pedido.';
+        } else {
+            this.pedidoId = pedidoId;
+        }
+        
     }
 
 }

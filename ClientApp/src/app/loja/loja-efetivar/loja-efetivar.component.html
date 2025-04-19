@@ -15,7 +15,7 @@
           <tr *ngFor="let produto of produtos">
             <td>
               <img
-                src="../../../../../imagens-produtos/{{ produto.nomeArquivo }}"
+                src="{{ caminhoImagem }}/imagens-produtos/{{ produto.nomeArquivo }}"
               />
             </td>
             <td>{{ produto.descricao }}</td>
@@ -24,7 +24,7 @@
                 type="number"
                 class="form-control"
                 value="1"
-                (change)="atualizarPreco(produto, $event.target.value)"
+                (change)="atualizarPreco(produto, $event)"
                 [(ngModel)]="produto.quantidade"
               />
             </td>

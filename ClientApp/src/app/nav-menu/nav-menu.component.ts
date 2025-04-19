@@ -1,17 +1,19 @@
-import { CarrinhoCompras } from './../loja/carrinho-compras';
 import { Usuario } from './../models/Usuario';
 import { UsuarioService } from './../servicos/usuario/usuario.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CarrinhoService } from '../servicos/carrinho/carrinho.service';
 
 @Component({
     selector: 'app-nav-menu',
+    imports: [CommonModule, RouterModule],
     templateUrl: './nav-menu.component.html',
-    styleUrls: ['./nav-menu.component.css']
+    styleUrls: ['./nav-menu.component.css'],
+    standalone: true
 })
 export class NavMenuComponent {
     isExpanded = false;
-    carrinhoCompras: CarrinhoCompras = new CarrinhoCompras();
 
     get usuario(): Usuario {
         return this.usuarioService.usuario;
@@ -19,7 +21,8 @@ export class NavMenuComponent {
 
     constructor(
         private router: Router,
-        private usuarioService: UsuarioService
+        private usuarioService: UsuarioService,
+        private carrinhoService: CarrinhoService
     ) {
     }
 
@@ -32,19 +35,19 @@ export class NavMenuComponent {
     }
 
     usuarioLogado(): boolean {
-        return this.usuarioService.usuario_autenticado();
+        return this.usuarioService.usuarioAutenticado();
     }
 
     usuarioAdministrador(): boolean {
-        return this.usuarioService.usuario_administrador();
+        return this.usuarioService.usuarioAdministrador();
     }
 
     carrinhoTemItens(): boolean {
-        return this.carrinhoCompras.temItens();
+        return this.carrinhoService.temItens();
     }
 
     sair(){
-        this.usuarioService.usuario = null;
+        this.usuarioService.usuario = new Usuario();
         this.usuarioService.limpar_sessao();
         this.router.navigate(['/']);
     }

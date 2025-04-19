@@ -34,9 +34,9 @@ export class LoginComponent implements OnInit {
     entrar() {
         this.ativarSpinner = true;
         
-        this.usuarioServico.verificarUsuario(this.usuario)
+        this.usuarioServico.verificar(this.usuario)
             .subscribe({
-                next: usuario => {
+                next: (usuario: Usuario) => {
                     // var usuarioRetorno: Usuario = data;
                     // localStorage.setItem('usuario-autenticado', '1');
                     // localStorage.setItem('usuario-email', usuarioRetorno.email);
@@ -48,8 +48,8 @@ export class LoginComponent implements OnInit {
                         this.router.navigate([this.returnUrl]);
                     }                    
                 },
-                error: err => {
-                    this.mensagem = err.error;
+                error: (err: Error) => {
+                    this.mensagem = err.message;
                     this.ativarSpinner = false;
                 }
             });

@@ -1,8 +1,9 @@
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Usuario } from '../../models/Usuario';
 import { environment } from '../../../environments/environment';
+import { isPlatformBrowser } from '@angular/common';
 
 //TODO: Criar um serviço de sessão/auth separado no futuro.
 
@@ -13,12 +14,19 @@ import { environment } from '../../../environments/environment';
 })
 export class UsuarioService {
     private readonly _apiUrl = `${environment.apiUrl}/usuarios`;
-    private _usuario: Usuario = this.carregarUsuarioDoStorage();
+    private _usuario: Usuario = new Usuario();
+
+    private _isBrowser: boolean = false;
 
 
     constructor(
+        @Inject(PLATFORM_ID) private platformId: Object,
         private http: HttpClient,
     ) {
+        this._isBrowser = isPlatformBrowser(this.platformId);
+        if (this._isBrowser) {
+            this._usuario = this.carregarUsuarioDoStorage();
+        }
     }
 
     get usuario(): Usuario {
@@ -40,12 +48,12 @@ export class UsuarioService {
         return usuarioJson ? JSON.parse(usuarioJson) : new Usuario;
     }
 
-    // TODO: Melhorar com uma consulta ao backend.
+
     usuarioAutenticado(): boolean {
         return this._usuario.email != '' && this._usuario.senha != '';
     }
 
-    // TODO: Melhorar com uma consulta ao backend.
+
     usuarioAdministrador(): boolean {
         return this.usuarioAutenticado() && !!this.usuario.administrador;
     }

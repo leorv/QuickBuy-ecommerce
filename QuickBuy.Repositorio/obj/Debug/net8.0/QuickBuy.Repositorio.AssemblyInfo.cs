@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuickBuy.Repositorio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff6abd7729b8825fa15b61fa0b1ff46b581e0e75")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0176a8747d15b9b71e601b903f716dab216e839")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuickBuy.Repositorio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuickBuy.Repositorio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

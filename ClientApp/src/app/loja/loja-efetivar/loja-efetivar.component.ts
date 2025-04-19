@@ -6,32 +6,46 @@ import { Pedido } from '../../models/Pedido';
 import { ItemPedido } from './../../models/ItemPedido';
 import { Produto } from './../../models/Produto';
 import { UsuarioService } from './../../servicos/usuario/usuario.service';
-import { CarrinhoCompras } from './../carrinho-compras';
+import { CarrinhoService } from '../../servicos/carrinho/carrinho.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 @Component({
     selector: 'app-loja-efetivar',
+    imports: [CommonModule, FormsModule],
     templateUrl: './loja-efetivar.component.html',
-    styleUrls: ['./loja-efetivar.component.css']
+    styleUrls: ['./loja-efetivar.component.css'],
+    standalone: true
 })
 export class LojaEfetivarComponent implements OnInit {
-
-    carrinhoCompras: CarrinhoCompras;
-    produtos: Produto[];
-    total: number;
+    produtos: Produto[] = [];
+    total: number = 0;
+    caminhoImagem: string = `${environment.apiUrl}`;
 
     constructor(
         private usuarioServico: UsuarioService,
         private pedidoServico: PedidoService,
-        private router: Router
+        private router: Router,
+        private carrinhoService: CarrinhoService
     ) { }
 
     ngOnInit() {
-        this.carrinhoCompras = new CarrinhoCompras();
-        this.produtos = this.carrinhoCompras.obterProdutos();
+        this.produtos = this.carrinhoService.obterProdutos();
         this.atualizarTotal();
     }
 
-    atualizarPreco(produto: Produto, quantidade: number) {
+    atualizarPreco(produto: Produto, event: Event) {
+
+        const input = event.target as HTMLInputElement;
+
+        if (!input) {
+            return;
+        }
+
+        let quantidade: number = +input.value;
+
+
         if (!produto.precoOriginal) {
             produto.precoOriginal = produto.preco;
         }
@@ -40,13 +54,13 @@ export class LojaEfetivarComponent implements OnInit {
             produto.quantidade = quantidade;
         }
         produto.preco = produto.precoOriginal * quantidade;
-        this.carrinhoCompras.atualizar(this.produtos);
+        this.carrinhoService.atualizar(this.produtos);
         this.atualizarTotal();
     }
 
     remover(produto: Produto) {
-        this.carrinhoCompras.removerProduto(produto);
-        this.produtos = this.carrinhoCompras.obterProdutos();
+        this.carrinhoService.removerProduto(produto);
+        this.produtos = this.carrinhoService.obterProdutos();
         this.atualizarTotal();
     }
 
@@ -57,10 +71,9 @@ export class LojaEfetivarComponent implements OnInit {
     efetivarCompra() {
         this.pedidoServico.efetivarCompra(this.criarPedido()).subscribe({
             next: (pedidoId: number) => {
-                localStorage.setItem('pedidoId', pedidoId.toString());
                 this.produtos = [];
-                this.carrinhoCompras.limparCarrinho();
-                this.router.navigate(['/compra-realizada-sucesso']);
+                this.carrinhoService.limparCarrinho();
+                this.router.navigate(['/compra-realizada-sucesso', pedidoId]);
             },
             error: err => {
                 console.log(err);
@@ -83,7 +96,7 @@ export class LojaEfetivarComponent implements OnInit {
         pedido.enderecoCompleto = 'Av. Santo Antônio';
         pedido.dataPedido = new Date();
 
-        this.produtos = this.carrinhoCompras.obterProdutos();
+        this.produtos = this.carrinhoService.obterProdutos();
         for (let produto of this.produtos) {
             let itemPedido = new ItemPedido();
             itemPedido.produtoId = produto.id;

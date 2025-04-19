@@ -1,16 +1,16 @@
 <div *ngIf="!produtos">Carregando...</div>
 
 <div class="row" *ngIf="produtos">
-  <div class="col-md-4" *ngFor="let produto of produtos">
-    <div (click)="visualizarProduto(produto)" >
-      <div class="card">
-        <img src="../../../../../imagens-produtos/{{ produto.nomeArquivo }}" />
-        <div class="card-body">
-          <!-- <h5 class="card-title"> {{ produto.nome }}</h5> -->
-          <div class="card-text">{{ produto.descricao | truncate : 50 }}</div>
-          <h5>{{ produto.preco }}</h5>
+    <div class="col-md-4" *ngFor="let produto of produtos">
+        <div (click)="visualizarProduto(produto)">
+            <div class="card">
+                <img src="{{ caminhoImagem }}/imagens-produtos/{{ produto.nomeArquivo }}" />
+                <div class="card-body">
+                    <!-- <h5 class="card-title"> {{ produto.nome }}</h5> -->
+                    <div class="card-text">{{ produto.descricao }}</div>
+                    <h5>{{ produto.preco }}</h5>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
