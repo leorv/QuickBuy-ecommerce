@@ -865,19 +865,19 @@
     ]
   },
   "packageFolders": {
-    "/home/leonardo/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/QuickBuy.Repositorio.csproj",
+      "projectUniqueName": "/app/QuickBuy.Repositorio/QuickBuy.Repositorio.csproj",
       "projectName": "QuickBuy.Repositorio",
-      "projectPath": "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/QuickBuy.Repositorio.csproj",
-      "packagesPath": "/home/leonardo/.nuget/packages/",
-      "outputPath": "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Repositorio/obj/",
+      "projectPath": "/app/QuickBuy.Repositorio/QuickBuy.Repositorio.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/app/QuickBuy.Repositorio/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/leonardo/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -889,8 +889,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/QuickBuy.Dominio.csproj": {
-              "projectPath": "/home/leonardo/Documentos/Source/angular-QuickBuy-store-project/QuickBuy.Dominio/QuickBuy.Dominio.csproj"
+            "/app/QuickBuy.Dominio/QuickBuy.Dominio.csproj": {
+              "projectPath": "/app/QuickBuy.Dominio/QuickBuy.Dominio.csproj"
             }
           }
         }
@@ -935,7 +935,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.407/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

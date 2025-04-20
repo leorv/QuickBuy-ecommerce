@@ -8,13 +8,18 @@ using QuickBuy.Dominio.Contratos;
 using QuickBuy.Repositorio.Contexto;
 using QuickBuy.Repositorio.Repositorios;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(
+    new WebApplicationOptions
+    {
+        Args = args,
+        EnvironmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"
+    });
+
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // To Swagger
@@ -37,6 +42,17 @@ builder.Services.AddDbContext<QuickBuyContexto>(options =>
         .UseMySql(builder.Configuration.GetConnectionString("QuickBuyDB"),
             new MySqlServerVersion(new Version(8, 0, 21))));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PoliticaCors",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -50,6 +66,7 @@ if (app.Environment.IsDevelopment())
         config.DocExpansion = "list";
     });
 }
+app.UseCors("PoliticaCors");
 
 app.UseHttpsRedirection();
 app.MapControllers();

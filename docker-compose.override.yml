@@ -1,0 +1,16 @@
+services:
+  migrator:
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    container_name: quickbuy-migrator
+    volumes:
+      - .:/app
+    working_dir: /app
+    depends_on:
+      - quickbuy-db
+    entrypoint: >
+      sh -c "
+        dotnet tool install --global dotnet-ef &&
+        export PATH=\"$PATH:/root/.dotnet/tools\" &&
+        dotnet ef database update --project QuickBuy.Repositorio --startup-project QuickBuy.Web --verbose
+      "
+

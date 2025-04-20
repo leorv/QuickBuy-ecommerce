@@ -1,0 +1,48 @@
+services:
+  quickbuy-db:
+    image: mysql:8
+    container_name: quickbuy-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: quickbuydb
+      MYSQL_ROOT_PASSWORD: numsey
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  quickbuy-web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: quickbuy-web
+    depends_on:
+      - quickbuy-db
+    ports:
+      - "5000:80"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    networks:
+      - quickbuy
+
+  quickbuy-angular:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: quickbuy-angular
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - quickbuy-web
+    networks:
+      - quickbuy
+
+volumes:
+  mysql_data:
+
+
+networks:
+  quickbuy:
